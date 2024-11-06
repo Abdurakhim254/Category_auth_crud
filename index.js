@@ -8,12 +8,9 @@ app.use(express.json())
 app.use("/auth",authrouter)
 app.use("/category",categoryrouter)
 
-app.use((err,req,res,next)=>{
-    if(err){
-        res.status(500).send("Internal Server Error")
-    }else{
-        next()
-    }
+app.use((req,res)=>{
+    // console.error(err.message)
+    res.status(500).send("Internal Server error")
 })
 
 app.listen(application.PORT,()=>{
