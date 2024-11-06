@@ -30,8 +30,8 @@ export const checkcategorymiddleware=(req,res,next)=>{
 export const updaatecategorymiddleware=(req,res,next)=>{
     try {
         const id=+req.params.id
-        const {category_name,title,description}=req.body
-        const result=update_category_schema.validate({id,category_name,title,description})
+        const {category_name,title,description,isactive}=req.body
+        const result=update_category_schema.validate({id,category_name,title,isactive,description})
         const {error,value}=result
         if(error){
             throw new Error("Ma'lumotlar to'liqmas")

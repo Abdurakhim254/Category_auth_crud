@@ -1,4 +1,4 @@
-import {getAllcategorymodel,getcategorybyidModel,createcategorymodel,deletecategorymodel} from "../models/index.js"
+import {getAllcategorymodel,getcategorybyidModel,updatecategorymodel,createcategorymodel,deletecategorymodel} from "../models/index.js"
 export const getallCategorycontroller=async(req,res)=>{
     try {
         const result=await getAllcategorymodel()
@@ -28,8 +28,10 @@ export const createCategorycontroller=async(req,res)=>{
 }
 export const updateCategoryByidcontroller=async(req,res)=>{
     try {
-        res.status(200).send("ok")
-
+        const id=+req.params.id
+        const {title,description,isactive,category_name}=req.body
+        const result=await updatecategorymodel({id,title,description,isactive,category_name})
+        res.status(200).send(result)
     } catch (error) {
         res.status(400).send("Categoryni Id boyicha yangilashda kelishda xatolik")
     }

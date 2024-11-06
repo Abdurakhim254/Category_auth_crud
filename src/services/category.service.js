@@ -6,7 +6,7 @@ export const getAllcategory=async()=>{
 }
 
 export const getCategorybyid=async(id)=>{
-    const result=await Category.findById({id:id})
+    const result=await Category.find({id:id})
     return result
 }
 export const createcategory=async(data)=>{
@@ -17,4 +17,8 @@ export const createcategory=async(data)=>{
 export const deleteCategory=async(id)=>{
     await Category.deleteOne({id:id})
     return "Category o'chirildi"
+}
+export const updatecategory=async({id,title,description,isactive,category_name})=>{
+    await Category.updateOne({id:id},{title:title,description:description,isactive:isactive,category_name:category_name})
+    return "Category yangilandi"
 }

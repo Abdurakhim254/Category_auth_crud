@@ -17,7 +17,7 @@ const Categoryschema=new mongoose.Schema({
         type:String,
         required:true 
     },
-    isactive:{
+    isactive:{ 
         type:Boolean,
         required:true
     }

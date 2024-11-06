@@ -1,4 +1,4 @@
-import {getAllcategory,getCategorybyid,deleteCategory,createcategory} from "../services/index.js"
+import {getAllcategory,getCategorybyid,updatecategory,deleteCategory,createcategory} from "../services/index.js"
 
 export const getAllcategorymodel=async()=>{
     try {
@@ -41,5 +41,14 @@ export const createcategorymodel=async(data)=>{
         return result
     } catch (error) {
         return "Category yaratishda xatolik"
+    }
+}
+
+export const updatecategorymodel=async({id,title,description,isactive,category_name})=>{
+    try {
+        const result=await updatecategory({id,title,description,isactive,category_name})
+        return "Category yangilandi"
+    } catch (error) {
+        return "Categoryni yangilashda xatolik"
     }
 }

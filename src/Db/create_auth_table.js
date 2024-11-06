@@ -24,4 +24,4 @@ const Authschema=new mongoose.Schema({
 })
 mongoose.connect(application.URL)
 
-export const Auth=mongoose.model("category",Authschema)
+export const Auth=mongoose.model("users",Authschema)
