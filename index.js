@@ -6,7 +6,7 @@ const app=express()
 app.use(express.json())
 
 app.use("/auth",authrouter)
-app.use("/category",categoryrouter)
+app.use("/category",categoryrouter) 
 
 app.use((req,res)=>{
     // console.error(err.message)
